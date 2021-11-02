@@ -2,6 +2,13 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Button } from '../componentsTemp/Button'
 
+
+
+export const NextButton(props) {
+
+}
+
+
 function FetchButton(props) {
   const questionCategory = useSelector(
     (state) => state.options.question_category
