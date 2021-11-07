@@ -73,19 +73,6 @@ function Question() {
     }
   }
 
-  /*
-    {
-      "category": "Entertainment: Video Games",
-      "type": "boolean",
-      "difficulty": "easy",
-      "question": "Peter Molyneux was the founder of Bullfrog Productions.",
-      "correct_answer": "True",
-      "incorrect_answers": [
-        "False"
-      ]
-    }
-  */
-
   const getClass = option => {
     if (!answerSelected) {
       return ``;

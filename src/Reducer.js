@@ -84,7 +84,7 @@ const Reducer = (state = initState, action) => {
         level: action.level,
     }
 
-    
+
 
 
     default:
