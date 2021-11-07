@@ -73,8 +73,8 @@ function Settings() {
 
 
 
-        {/*<StartTestButton text="Get started!" />*/}
-        <NextButton text="NextButton Text" />
+        {<StartTestButton text="Get started!" />}
+       
       </div>
     )
   }

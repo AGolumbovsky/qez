@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Button } from '../componentsTemp/Button'
 
 const decodeHTML = function (html) {
   const txt = document.createElement('textarea')
@@ -60,17 +61,7 @@ function Question() {
       })
     }
 
-    if (questionIndex + 1 <= questions.length) {
-      setTimeout(() => {
-        setAnswerSelected(false)
-        setSelectedAnswer(null)
-
-        dispatch({
-          type: 'SET_INDEX',
-          index: questionIndex + 1,
-        })
-      }, 2500)
-    }
+    
   }
 
   const getClass = option => {
@@ -90,6 +81,18 @@ function Question() {
   if (!question) {
     return <div>Loading</div>
   }
+const onNextQuesiton = () => {
+  if (questionIndex + 1 <= questions.length) {
+    
+      setAnswerSelected(false)
+      setSelectedAnswer(null)
+
+      dispatch({
+        type: 'SET_INDEX',
+        index: questionIndex + 1,
+      })
+  }
+}
 
   return (
     <div>
@@ -105,6 +108,12 @@ function Question() {
       <div>
         Score: {score} / {questions.length}
       </div>
+
+      <div>
+        <Button onClick={ onNextQuesiton }>Next Question</Button>
+      </div>
+
+
     </div>
   )
 }
