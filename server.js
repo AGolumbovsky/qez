@@ -9,6 +9,7 @@ app.get('/test', (req, res) => {
 app.get('/level-one', (req, res) => {
     // from db
     res.send("Great success!!!");
+    console.log("Great success!");
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

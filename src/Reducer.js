@@ -5,6 +5,8 @@ const initState = {
     question_difficulty: ``,
     question_type: ``,
     amount_of_questions: 50,
+    // sam dobavil
+    level: ``,
   },
   questions: [],
   index: 0,
@@ -31,12 +33,12 @@ const Reducer = (state = initState, action) => {
         },
       }
 
-    case 'CHANGE_DIFFICULTY':
+    case 'CHANGE_LESSON':
       return {
         ...state,
         options: {
           ...state.options,
-          question_difficulty: action.question_difficulty,
+          lesson_selection: action.lesson_selection,
         },
       }
 
@@ -75,6 +77,15 @@ const Reducer = (state = initState, action) => {
         ...state,
         score: action.score,
       }
+    // sam dobavil
+    case 'SET_LEVEL':
+      return {
+        ...state,
+        level: action.level,
+    }
+
+    
+
 
     default:
       return state

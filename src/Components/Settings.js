@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import FetchButton from './FetchButton'
+import StartTestButton from './StartTestButton'
+import { NextButton } from './NextButton'
 
 function Settings() {
   const [options, setOptions] = useState(null)
 
   const loading = useSelector((state) => state.options.loading)
 
-  const questionCategory = useSelector(
-    (state) => state.options.question_category
-  )
-  const questionDifficulty = useSelector(
-    (state) => state.options.question_difficulty
-  )
-  const questionType = useSelector((state) => state.options.question_type)
-  const questionAmount = useSelector(
-    (state) => state.options.amount_of_questions
-  )
+  
+  const lessonSelection = useSelector(
+    (state) => state.options.lessonSelection
+  )  
 
   const dispatch = useDispatch()
 
@@ -40,31 +35,12 @@ function Settings() {
       })
   }, [setOptions, dispatch])
 
-  const handleCategoryChange = (event) => {
-    dispatch({
-      type: 'CHANGE_CATEGORY',
-      question_category: event.target.value,
-    })
-  }
+  
 
-  const handleDifficultyChange = (event) => {
+  const handleLessonSelection = (event) => {
     dispatch({
-      type: 'CHANGE_DIFFICULTY',
-      question_difficulty: event.target.value,
-    })
-  }
-
-  const handleTypeChange = (event) => {
-    dispatch({
-      type: 'CHANGE_TYPE',
-      question_type: event.target.value,
-    })
-  }
-
-  const handleAmountChange = (event) => {
-    dispatch({
-      type: 'CHANGE_AMOUNT',
-      amount_of_questions: event.target.value,
+      type: 'CHANGE_LESSON',
+      lesson_selection: event.target.value,
     })
   }
 
@@ -72,59 +48,34 @@ function Settings() {
     return (
       <div>
         <h1>Quiz App</h1>
+        
         <div>
-          <h2>Select Category:</h2>
-          <select value={questionCategory} onChange={handleCategoryChange}>
-            <option>All</option>
-            {options &&
-              options.length &&
-              options.map((option) => (
-                <option value={option.id} key={option.id}>
-                  {option.name}
-                </option>
-              ))}
-          </select>
-        </div>
-
-        <div>
-          <h2>Select Difficulty:</h2>
-          <select value={questionDifficulty} onChange={handleDifficultyChange}>
+          <h2>Select Lesson:</h2>
+          <select value={lessonSelection} onChange={handleLessonSelection}>
             <option value="" key="difficulty-0">
               All
             </option>
-            <option value="easy" key="difficulty-1">
-              Easy
+            <option value="lesson_1" key="lesson-1">
+              Lesson 1
             </option>
-            <option value="medium" key="difficulty-2">
-              Medium
+            <option value="lesson_2" key="lesson-2">
+              Lesson 2
             </option>
-            <option value="hard" key="difficulty-3">
-              Hard
+            <option value="lesson_3" key="lesson-3">
+              Lesson 3
             </option>
           </select>
         </div>
 
         <div>
           <h2>Select Question Type:</h2>
-          <select value={questionType} onChange={handleTypeChange}>
-            <option value="" key="type-0">
-              All
-            </option>
-            <option value="multiple" key="type-1">
-              Multiple Choice
-            </option>
-            <option value="boolean" key="type-2">
-              True/False
-            </option>
-          </select>
+          
         </div>
 
-        <div>
-          <h2>Amount of Questions:</h2>
-          <input value={questionAmount} onChange={handleAmountChange} />
-        </div>
+        
 
-        <FetchButton text="Get started!" />
+        <StartTestButton text="Get started!" />
+        <NextButton text="NextButton Text" />
       </div>
     )
   }

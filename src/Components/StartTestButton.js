@@ -2,17 +2,13 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Button } from '../componentsTemp/Button'
 
-function FetchButton(props) {
-  const questionCategory = useSelector(
-    (state) => state.options.question_category
-  )
+function StartTestButton(props) {
+  
   const questionDifficulty = useSelector(
     (state) => state.options.question_difficulty
   )
   const questionType = useSelector((state) => state.options.question_type)
-  const questionAmount = useSelector(
-    (state) => state.options.amount_of_questions
-  )
+  
   const questionIndex = useSelector((state) => state.index)
 
   const dispatch = useDispatch()
@@ -32,19 +28,12 @@ function FetchButton(props) {
   }
 
   const handleQuery = async () => {
-    let apiUrl = `https://opentdb.com/api.php?amount=${questionAmount}`
-    let levelOne = "/level-one"
-
+    let someNumber = 3; // hard coding the number of questions
+    let apiUrl = `https://opentdb.com/api.php?amount=${someNumber}`
+    
     setLoading(true)
 
-    await fetch(levelOne)
-      .then(() => {console.log("levelOne reached, don't be scared to try levelTwo")})
-      // .then(() => {setLoading(false)})
-
-
-    if (questionCategory.length) {
-      apiUrl = apiUrl.concat(`&category=${questionCategory}`)
-    }
+    
 
     if (questionDifficulty.length) {
       apiUrl = apiUrl.concat(`&difficulty=${questionDifficulty}`)
@@ -76,6 +65,6 @@ function FetchButton(props) {
     }
   }
 
-  return <Button onClick={ handleQuery }>Start the test</Button>
+  return <Button onClick={ handleQuery }>Start the Test</Button>
 }
-export default FetchButton
+export default StartTestButton
