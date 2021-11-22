@@ -5,6 +5,8 @@ import Question from './Components/Question'
 import FinalScreen from './Components/FinalScreen'
 
 import './App.css'
+import { useEffect } from 'react'
+import { getQuestions } from './api/routes/getQuestions'
 
 function App() {
   const questions = useSelector((state) => state.questions)
@@ -19,6 +21,14 @@ function App() {
   } else {
     component = <FinalScreen />
   }
+
+  useEffect(() => {
+
+    getQuestions()
+      .then((res) => res.json())
+      .then((data) => { console.log(data) })
+
+  }, [])
 
   return (
     <div className="App">
