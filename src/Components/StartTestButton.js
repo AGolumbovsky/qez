@@ -26,6 +26,25 @@ function StartTestButton (props) {
         setLoading(true)
         
         getQuestions()
+        .then((res) => res.json())
+        .then((response) => {
+            console.log(response)
+            handleQuestions(response.questions)
+            setLoading(false)
+        })
+
+
+    // if (questionIndex > 0) {
+    //   dispatch({
+    //     type: 'SET_INDEX',
+    //     index: 0,
+    //   })
+
+    //   dispatch({
+    //     type: 'SET_SCORE',
+    //     score: 0,
+    //   })
+    // }
        
     }
 

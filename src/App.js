@@ -7,32 +7,16 @@ import FinalScreen from './Components/FinalScreen'
 import './App.css'
 import { useEffect } from 'react'
 import { getQuestions } from './api/routes/getQuestions'
+import StartTestButton from './Components/StartTestButton'
 
 function App() {
   const questions = useSelector((state) => state.questions)
   const questionIndex = useSelector((state) => state.index)
 
-  let component
-
-  if (questions.length && questionIndex + 1 <= questions.length) {
-    component = <Question />
-  } else if (!questions.length) {
-    component = <Settings />
-  } else {
-    component = <FinalScreen />
-  }
-
-  useEffect(() => {
-
-    getQuestions()
-      .then((res) => res.json())
-      .then((data) => { console.log(data) })
-
-  }, [])
 
   return (
     <div className="App">
-      <div className="app-container">{component}</div>
+      <div className="app-container">{ (questions.length != 0 ? <Question /> : <StartTestButton />)}</div>
     </div>
   )
 }
