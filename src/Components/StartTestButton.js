@@ -48,7 +48,7 @@ function StartTestButton (props) {
        
     }
 
-    return <Button onClick={ handleQuery }>Pehali!</Button>
+    return <Button onClick={ handleQuery }>Let's Go!</Button>
 }
 
 export default StartTestButton

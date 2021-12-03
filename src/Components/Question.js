@@ -11,6 +11,7 @@ const decodeHTML = function (html) {
 function Question() {
   
   const quesions = useSelector(state => state.quesions)
+  // const quesions = useSelector(state => state.reducer.quesions)
   
   return (
     <div>
@@ -31,6 +32,8 @@ function Question() {
         <Button onClick={ onNextQuesiton }>Next Question</Button>
       </div>
  */}
+
+<p>Question: {quesions}</p>
 
     </div>
   )

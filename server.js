@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.PORT || 8787;
 const cors = require('cors');
 
-const question = require('./question.json')
+const question = require('./questions.json')
 
 app.use(cors({origin: true}))
 
