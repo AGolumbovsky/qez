@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Button } from '../componentsTemp/Button'
+import { NextButton } from './NextButton'
 
 const decodeHTML = function (html) {
   const txt = document.createElement('textarea')
@@ -35,6 +36,7 @@ function Question() {
 
 <p>Question:</p>
   {questions.map(x => <div>{x.question}</div>)}
+  <NextButton></NextButton>
     </div>
   )
 }
