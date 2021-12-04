@@ -10,9 +10,9 @@ const decodeHTML = function (html) {
 
 function Question() {
   
-  const quesions = useSelector(state => state.quesions)
+  const questions = useSelector(state => state.questions)
   // const quesions = useSelector(state => state.reducer.quesions)
-  
+  console.log(questions)
   return (
     <div>
       {/* <p>Question {questionIndex + 1}</p>
@@ -33,8 +33,8 @@ function Question() {
       </div>
  */}
 
-<p>Question: {quesions}</p>
-
+<p>Question:</p>
+{questions.map(question => <div>{questions.question}</div>)}
     </div>
   )
 }
