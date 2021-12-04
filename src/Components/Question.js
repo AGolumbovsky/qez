@@ -34,7 +34,7 @@ function Question() {
  */}
 
 <p>Question:</p>
-{questions.map(question => <div>{questions.question}</div>)}
+  {questions.map(x => <div>{x.question}</div>)}
     </div>
   )
 }
