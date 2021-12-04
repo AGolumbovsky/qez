@@ -2,50 +2,62 @@
     "questions": [
 
         {
-            "question": "Question One",
+            "question": "What is BE in present?",
             "options": [
                 {
-                    "id": "Option 1",
-                    "value": "Answer 1"
+                    "id": "1",
+                    "value": "WAS"
                 },
                 {
-                    "id": "Option 2",
-                    "value": "Answer 2"
+                    "id": "2",
+                    "value": "WERE"
+                },
+                {
+                    "id": "3",
+                    "value": "IS"
                 }
             ],
-            "correctAnswerId": "Option 1"
+            "correctAnswerId": "3"
                       
         },
 
         {
-            "question": "Question Two",
+            "question": "What is DO in present?",
             "options": [
                 {
-                    "id": "Option 1",
-                    "value": "Answer 1"
+                    "id": "1",
+                    "value": "DOES"
                 },
                 {
-                    "id": "Option 2",
-                    "value": "Answer 2"
+                    "id": "DID",
+                    "value": "2"
+                },
+                {
+                    "id": "3",
+                    "value": "DOED"
                 }
             ],
-            "correctAnswerId": "Option 1"
+            "correctAnswerId": "1"
                       
         },
 
         {
-            "question": "Question Three",
+            "question": "Which verb is in present?",
             "options": [
                 {
-                    "id": "Option 1",
-                    "value": "Answer 1"
+                    "id": "1",
+                    "value": "WERE"
                 },
                 {
-                    "id": "Option 2",
-                    "value": "Answer 2"
+                    "id": "2",
+                    "value": "ARE"
+                },
+                {
+                    "id": "3",
+                    "value": "DID"
                 }
             ],
-            "correctAnswerId": "Option 1"
+            "correctAnswerId": "2"
                       
         }
                 
