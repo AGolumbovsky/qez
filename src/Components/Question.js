@@ -12,7 +12,6 @@ const decodeHTML = function (html) {
 function Question() {
   
   const questions = useSelector(state => state.questions)
-  // const quesions = useSelector(state => state.reducer.quesions)
   console.log(questions)
   return (
     <div>
@@ -34,9 +33,13 @@ function Question() {
       </div>
  */}
 
-<p>Question:</p>
-  {questions.map(x => <div>{x.question}</div>)}
-  <NextButton></NextButton>
+    <p>Question {"number x"}:</p>
+    {
+      questions.map(x => <div>{x.question}</div>)
+      // questions.map((x) => x.question)
+      
+    }
+      <NextButton></NextButton>
     </div>
   )
 }
