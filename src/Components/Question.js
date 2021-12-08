@@ -11,8 +11,11 @@ const decodeHTML = function (html) {
 
 function Question() {
   
-  const questions = useSelector(state => state.questions)
-  console.log(questions)
+  // const questions = useSelector(state => state.questions)
+  const currentQuestion = useSelector(state => state.currentQuestion)
+  const questionIndex = useSelector(state => state.questionIndex)
+
+  console.log(typeof currentQuestion)
   return (
     <div>
       {/* <p>Question {questionIndex + 1}</p>
@@ -33,10 +36,12 @@ function Question() {
       </div>
  */}
 
-    <p>Question {"number x"}:</p>
+    <p>Question { questionIndex + 1 }:</p>
     {
-      questions.map(x => <div>{x.question}</div>)
-      // questions.map((x) => x.question)
+      <div>
+        <div>{ currentQuestion.question }</div>
+        <div> { currentQuestion.options.map(option =>  <p>{ option.value }</p> ) } </div>
+      </div>
       
     }
       <NextButton></NextButton>

@@ -6,6 +6,14 @@ import { Button } from '../componentsTemp/Button'
 
 export const NextButton = (props) => {
 
+    const dispatch = useDispatch()
+    
+    const handleNextQuestion = (value) => {
+        dispatch({
+            type: 'CURRENT_QUESTION',
+            currentQuestion: value,
+        })
+    }
     const nextQuestion = async () => {
 
         let levelOne = "/level-one"
@@ -14,12 +22,14 @@ export const NextButton = (props) => {
         // setLoading(true);
 
         await fetch(levelOne)
-        .then(() => {console.log("levelOne reached, don't be scared to try levelTwo")})
+        .then(() => {console.log("next button clicked")})
         // .then(() => {setLoading(false)})
-    
 
+        //NEED TO:
+        // go to the next question
+        // change question index
+        // record current index
     }
 
-    return <Button onClick={ nextQuestion }> Next Question </Button>
-
+    return <Button onClick={ handleNextQuestion }> Next Question </Button>
 }
