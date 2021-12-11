@@ -14,6 +14,7 @@ function Question() {
   // const questions = useSelector(state => state.questions)
   const currentQuestion = useSelector(state => state.currentQuestion)
   const questionIndex = useSelector(state => state.questionIndex)
+  console.log("logging currentQuestion:", currentQuestion)
 
   console.log(typeof currentQuestion)
   return (
@@ -40,7 +41,6 @@ function Question() {
     {
       <div>
         <div>{ currentQuestion.question }</div>
-        <div> { currentQuestion.options.map(option =>  <p>{ option.value }</p> ) } </div>
       </div>
       
     }
@@ -49,3 +49,4 @@ function Question() {
   )
 }
 export default Question
+// <div> { currentQuestion.options.map(option =>  <p>{ option.value }</p> ) } </div>

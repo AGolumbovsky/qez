@@ -32,7 +32,7 @@ const Reducer = (state = initState, action) => {
       return {
         ...state,
         // currentQuestion: state.questions[action.questionIndex]
-        currentQuestion: state.questions[action.questionIndex]
+        currentQuestion: action.currentQuestion
       }
         
     default:
