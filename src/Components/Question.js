@@ -14,9 +14,24 @@ function Question() {
   // const questions = useSelector(state => state.questions)
   const currentQuestion = useSelector(state => state.currentQuestion)
   const questionIndex = useSelector(state => state.questionIndex)
-  console.log("logging currentQuestion:", currentQuestion)
+  const questionsCount = useSelector(state => state.questionsCount)
+
+  const dispatch = useDispatch()
+
+  const handleSelection = (id) => {
+    // console.log("current question id:", currentQuestion.id, id)
+    dispatch({
+      type: 'SELECTED_ANSWER',
+      questionId: currentQuestion.id,
+      selectedAnswerId: id
+    })
+  }
+
+  console.log("logging currentQuestion: \n", currentQuestion)
 
   console.log(typeof currentQuestion)
+  console.log("questionIndex:", questionIndex, " questionsCount:", questionsCount)
+  if (questionIndex == questionsCount - 1) return <div>End of the quiz!</div>
   return (
     <div>
       {/* <p>Question {questionIndex + 1}</p>
@@ -41,12 +56,11 @@ function Question() {
     {
       <div>
         <div>{ currentQuestion.question }</div>
+        <div> { currentQuestion.options.map(option =>  <p onClick={ () => handleSelection(option.id) }>{ option.value }</p> ) } </div>
       </div>
-      
     }
-      <NextButton></NextButton>
+      <NextButton questionIndex={ questionIndex + 1 }></NextButton>
     </div>
   )
 }
 export default Question
-// <div> { currentQuestion.options.map(option =>  <p>{ option.value }</p> ) } </div>

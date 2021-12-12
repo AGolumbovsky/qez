@@ -3,6 +3,7 @@ const initState = {
     loading: false
   },
   questions: [],
+  questionsCount: 0,
   currentQuestion: {
 
   },
@@ -25,16 +26,27 @@ const Reducer = (state = initState, action) => {
       return {
         ...state,
         questions: action.questions,
+        questionsCount: action.questionsCount,
         currentQuestion: action.questions[state.questionIndex]
       }
       
     case 'CURRENT_QUESTION':
       return {
         ...state,
-        // currentQuestion: state.questions[action.questionIndex]
-        currentQuestion: action.currentQuestion
+        currentQuestion: state.questions[action.questionIndex],
+        questionIndex: action.questionIndex
+        // currentQuestion: action.currentQuestion
       }
         
+    case 'SELECTED_ANSWER':
+      return {
+        ...state,
+        userAnswers: {
+          // ...userAnswers, 
+          
+        }
+      }
+
     default:
       return state
   }

@@ -8,10 +8,10 @@ export const NextButton = (props) => {
 
     const dispatch = useDispatch()
     
-    const handleNextQuestion = (value) => {
+    const handleNextQuestion = () => {
         dispatch({
             type: 'CURRENT_QUESTION',
-            currentQuestion: value,
+            questionIndex: props.questionIndex
         })
     }
     const nextQuestion = async () => {

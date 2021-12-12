@@ -18,6 +18,7 @@ function StartTestButton (props) {
         dispatch({
             type: 'SET_QUESTIONS',
             questions: value,
+            questionsCount: value.length
         })
     }
     
