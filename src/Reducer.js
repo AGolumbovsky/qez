@@ -7,6 +7,8 @@ const initState = {
   currentQuestion: {
 
   },
+  //idk
+  userAnswers: {},
   questionIndex: 0
 }
 
@@ -42,8 +44,8 @@ const Reducer = (state = initState, action) => {
       return {
         ...state,
         userAnswers: {
-          // ...userAnswers, 
-          
+         ...state.userAnswers, [action.questionId]: action.selectedAnswerId
+
         }
       }
 

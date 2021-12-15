@@ -29,7 +29,6 @@ function StartTestButton (props) {
         getQuestions()
         .then((res) => res.json())
         .then((response) => {
-            console.log(response)
             handleQuestions(response.questions)
             setLoading(false)
         })

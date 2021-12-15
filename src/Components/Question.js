@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Button } from '../componentsTemp/Button'
+import { BackButton } from './BackButton'
 import { NextButton } from './NextButton'
 
 const decodeHTML = function (html) {
@@ -16,6 +17,9 @@ function Question() {
   const questionIndex = useSelector(state => state.questionIndex)
   const questionsCount = useSelector(state => state.questionsCount)
 
+  const userAnswers = useSelector(state => state.userAnswers)
+  console.log("userAnswers is:", userAnswers)
+
   const dispatch = useDispatch()
 
   const handleSelection = (id) => {
@@ -27,11 +31,7 @@ function Question() {
     })
   }
 
-  console.log("logging currentQuestion: \n", currentQuestion)
-
-  console.log(typeof currentQuestion)
-  console.log("questionIndex:", questionIndex, " questionsCount:", questionsCount)
-  if (questionIndex == questionsCount - 1) return <div>End of the quiz!</div>
+  if (questionIndex == questionsCount) return <div>End of the quiz!</div>
   return (
     <div>
       {/* <p>Question {questionIndex + 1}</p>
@@ -56,9 +56,11 @@ function Question() {
     {
       <div>
         <div>{ currentQuestion.question }</div>
-        <div> { currentQuestion.options.map(option =>  <p onClick={ () => handleSelection(option.id) }>{ option.value }</p> ) } </div>
+        <div> { currentQuestion.options.map(option =>  <p key={ option.id } onClick={ () => handleSelection(option.id) }>{ option.value }</p> ) } </div>
       </div>
     }
+
+    {questionIndex > 0 ? <BackButton questionIndex={ questionIndex - 1 }></BackButton> : null}
       <NextButton questionIndex={ questionIndex + 1 }></NextButton>
     </div>
   )
