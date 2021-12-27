@@ -170,3 +170,8 @@ li.correct {
 li.selected:not(correct) {
   background-color: rgb(206, 58, 58);
 }
+
+.buttons-inline {
+  display: flex;
+  background-color: rgb(53, 212, 53);
+}

@@ -59,9 +59,12 @@ function Question() {
         <div> { currentQuestion.options.map(option =>  <p key={ option.id } onClick={ () => handleSelection(option.id) }>{ option.value }</p> ) } </div>
       </div>
     }
+    <span className='buttons-inline'>
+
 
     {questionIndex > 0 ? <BackButton questionIndex={ questionIndex - 1 }></BackButton> : null}
       <NextButton questionIndex={ questionIndex + 1 }></NextButton>
+    </span>
     </div>
   )
 }
