@@ -175,3 +175,7 @@ li.selected:not(correct) {
   display: flex;
   background-color: rgb(53, 212, 53);
 }
+
+.question-highlighted {
+  background-color: rgba(59, 153, 252, 0.7);
+}

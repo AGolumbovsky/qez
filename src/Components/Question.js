@@ -29,6 +29,8 @@ function Question() {
       questionId: currentQuestion.id,
       selectedAnswerId: id
     })
+
+    
   }
 
   if (questionIndex == questionsCount) return <div>End of the quiz!</div>
