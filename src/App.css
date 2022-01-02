@@ -179,3 +179,7 @@ li.selected:not(correct) {
 .question-highlighted {
   background-color: rgba(59, 153, 252, 0.7);
 }
+
+.gr {
+  background-color: grey;
+}
