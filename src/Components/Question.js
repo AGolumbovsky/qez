@@ -30,7 +30,7 @@ function Question() {
       selectedAnswerId: id
     })
 
-    
+    console.log("this is: ", this)
   }
 
   if (questionIndex == questionsCount) return <div>End of the quiz!</div>
@@ -57,7 +57,7 @@ function Question() {
     <p>Question { questionIndex + 1 }:</p>
     {
       <div>
-        <div>{ currentQuestion.question }</div>
+        <div className="question-highlighted">{ currentQuestion.question }</div>
         <div> { currentQuestion.options.map(option =>  <p key={ option.id } onClick={ () => handleSelection(option.id) }>{ option.value }</p> ) } </div>
       </div>
     }
