@@ -58,7 +58,9 @@ function Question() {
     {
       <div>
         <div>{ currentQuestion.question }</div>
-        <div> { currentQuestion.options.map(option =>  <p className={ userAnswers[questionIndex + 1] === option.id ? "question-highlighted" : "" } key={ option.id } onClick={ () => handleSelection(option.id) }>{ option.value }</p> ) } </div>
+        <div> { currentQuestion.options.map(option =>  <p className={ userAnswers[questionIndex + 1] === option.id ? "question-highlighted" : "" } 
+          key={ option.id } 
+          onClick={ () => handleSelection(option.id) }>{ option.value }</p> ) } </div>
       </div>
     }
     <span className='buttons-inline'>
