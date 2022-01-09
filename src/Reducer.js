@@ -49,6 +49,12 @@ const Reducer = (state = initState, action) => {
         }
       }
 
+      case 'TOGGLE_REVIEW_QUESTION':
+        return {
+          ...state,
+          isFromReview: action.isFromReview
+        }
+
     default:
       return state
   }

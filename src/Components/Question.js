@@ -4,6 +4,7 @@ import { Button } from '../componentsTemp/Button'
 import { BackButton } from './BackButton'
 import { EndScreen } from './EndScreen'
 import { NextButton } from './NextButton'
+import { GoToReviewButton } from './GoToReviewButton'
 
 const decodeHTML = function (html) {
   const txt = document.createElement('textarea')
@@ -17,6 +18,7 @@ function Question() {
   const currentQuestion = useSelector(state => state.currentQuestion)
   const questionIndex = useSelector(state => state.questionIndex)
   const questionsCount = useSelector(state => state.questionsCount)
+  const isFromReview = useSelector(state => state.isFromReview)
 
   const userAnswers = useSelector(state => state.userAnswers)
   console.log("userAnswers is:", userAnswers)
@@ -65,9 +67,11 @@ function Question() {
     }
     <span className='buttons-inline'>
 
-
-    {questionIndex > 0 ? <BackButton questionIndex={ questionIndex - 1 }></BackButton> : null}
-      <NextButton questionIndex={ questionIndex + 1 }></NextButton>
+    { isFromReview ? <GoToReviewButton /> :
+    
+    questionIndex > 0 && <BackButton questionIndex={ questionIndex - 1 }></BackButton> }
+    { !isFromReview && <NextButton questionIndex={ questionIndex + 1 }></NextButton> }
+    
     </span>
     </div>
   )

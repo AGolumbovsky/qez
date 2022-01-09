@@ -12,13 +12,14 @@ export const EndScreen = () => {
     
     const handleReviewQuestion = (qId) => {
         
-        console.log("all questions is:", allQuestions)
-        console.log("user answers is:", userAnswers)
-        console.log("question id is:", qId)
-
         dispatch({
             type: 'CURRENT_QUESTION',
             questionIndex: qId - 1
+        })
+
+        dispatch({
+            type: 'TOGGLE_REVIEW_QUESTION',
+            isFromReview: true
         })
 
         // a kak sdelat' chtob Question imelo 'Back to results' button?
