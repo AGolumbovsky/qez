@@ -33,7 +33,6 @@ function StartTestButton (props) {
             setLoading(false)
         })
 
-
     // if (questionIndex > 0) {
     //   dispatch({
     //     type: 'SET_INDEX',

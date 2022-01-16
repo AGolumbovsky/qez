@@ -49,11 +49,18 @@ const Reducer = (state = initState, action) => {
         }
       }
 
-      case 'TOGGLE_REVIEW_QUESTION':
-        return {
-          ...state,
-          isFromReview: action.isFromReview
-        }
+    case 'TOGGLE_REVIEW_QUESTION':
+      return {
+        ...state,
+        isFromReview: action.isFromReview
+      }
+
+    case 'RESULTS':
+      return {
+        ...state,
+        questions: state.questions,
+        userAnswers: state.userAnswers
+      }
 
     default:
       return state

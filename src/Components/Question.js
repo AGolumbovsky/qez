@@ -5,6 +5,7 @@ import { BackButton } from './BackButton'
 import { EndScreen } from './EndScreen'
 import { NextButton } from './NextButton'
 import { GoToReviewButton } from './GoToReviewButton'
+import { ResultsScreen } from './ResultsScreen'
 
 const decodeHTML = function (html) {
   const txt = document.createElement('textarea')
@@ -13,6 +14,8 @@ const decodeHTML = function (html) {
 }
 
 function Question() {
+
+  const [state, setState] = useState(false)
   
   // const questions = useSelector(state => state.questions)
   const currentQuestion = useSelector(state => state.currentQuestion)
@@ -26,7 +29,7 @@ function Question() {
   const dispatch = useDispatch()
 
   const handleSelection = (id) => {
-    // console.log("current question id:", currentQuestion.id, id)
+
     dispatch({
       type: 'SELECTED_ANSWER',
       questionId: currentQuestion.id,
@@ -35,7 +38,18 @@ function Question() {
 
   }
 
-  if (questionIndex == questionsCount) return <EndScreen />
+  const showResults = () => {
+
+    setState(true)
+    console.log("some test")
+    
+    
+  }
+  console.log("state is", state)
+
+  if (state == true) return <ResultsScreen />
+
+  if (questionIndex == questionsCount) return <EndScreen showResults={ showResults } />
   return (
     <div>
       {/* <p>Question {questionIndex + 1}</p>

@@ -183,3 +183,11 @@ li.selected:not(correct) {
 .gr {
   background-color: grey;
 }
+
+.wrong-answer {
+  background-color: "red";
+}
+
+.correct-answer {
+  background-color: "green";
+}

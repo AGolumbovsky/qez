@@ -3,8 +3,9 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Button } from '../componentsTemp/Button'
 
-export const EndScreen = () => {
+export const EndScreen = (props) => {
 
+    console.log("props are:", props)
     const allQuestions = useSelector(state => state.questions)
     const userAnswers = useSelector(state => state.userAnswers)
 
@@ -22,12 +23,15 @@ export const EndScreen = () => {
             isFromReview: true
         })
 
-        // a kak sdelat' chtob Question imelo 'Back to results' button?
-
     }
 
     const handleSubmit = () => {
-        alert("Congratulations! You're an idiot!")
+        console.log("questions is:", allQuestions)
+
+        dispatch({
+            type: 'RESULTS',
+            
+        })
     }
 
     return (<div> { allQuestions.map(qu => <p className={ userAnswers[qu.id] ? "" : "gr" } 
@@ -36,7 +40,7 @@ export const EndScreen = () => {
         </p>) 
         }
         
-        <Button onClick={ () => handleSubmit()}>Submit</Button>
+        <Button onClick={ props.showResults } >Submit</Button>
         
     </div>)
 }
