@@ -10,6 +10,8 @@ export const ResultsScreen = () => {
     const userAnswers = useSelector(state => state.userAnswers)
     const [state, setState] = useState(false)
     // create another local state where you keep the correct answer
+    const [savedCorrectAnswer, setCorrectAnswer] = useState(null)
+    const [shownQuestion, setShownQuestion] = useState(null)
 
     const dispatch = useDispatch()
     
@@ -18,8 +20,14 @@ export const ResultsScreen = () => {
 
     const handleOpenModal = (question) => {
         
+        console.log("question is:", question)
         setState(true)
+
         // call the other local state
+        const correctAnswer = question.options.find(element => question.correctAnswerId == element.id)
+        setCorrectAnswer(correctAnswer)
+
+        setShownQuestion(question.question)
 
         
     }
@@ -27,13 +35,13 @@ export const ResultsScreen = () => {
     
     return (<div> { allQuestions.map(qu => <p className={ 
         userAnswers[qu.id] === qu.correctAnswerId ? "correct-answer" : "wrong-answer"}
-        onClick={ handleOpenModal }
+        onClick={ () => handleOpenModal(qu) }
         > 
         {console.log(state)}
     { qu.question }
     </p>) 
     }
-    { state && <Modal ></Modal> }
+    { state && <Modal correctAnswer={ savedCorrectAnswer.value } shownQuestion={ shownQuestion }></Modal> }
     <Button >Back to Main</Button>
     
     </div>)

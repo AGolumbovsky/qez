@@ -209,4 +209,9 @@ li.selected:not(correct) {
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
+  width: 300px;
+  height: 150px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
 }
