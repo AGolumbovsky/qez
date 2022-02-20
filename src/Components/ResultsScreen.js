@@ -8,10 +8,10 @@ export const ResultsScreen = () => {
 
     const allQuestions = useSelector(state => state.questions)
     const userAnswers = useSelector(state => state.userAnswers)
+
     const [state, setState] = useState(false)
-    // create another local state where you keep the correct answer
     const [savedCorrectAnswer, setCorrectAnswer] = useState(null)
-    const [shownQuestion, setShownQuestion] = useState(null)
+    const [shownQuestion, setShownQuestion] = useState(null)    
 
     const dispatch = useDispatch()
     
@@ -26,12 +26,14 @@ export const ResultsScreen = () => {
         // call the other local state
         const correctAnswer = question.options.find(element => question.correctAnswerId == element.id)
         setCorrectAnswer(correctAnswer)
-
         setShownQuestion(question.question)
-
-        
+ 
     }
-    
+
+    const handleCloseModal = () => {
+        setState(false)
+    }
+
     
     return (<div> { allQuestions.map(qu => <p className={ 
         userAnswers[qu.id] === qu.correctAnswerId ? "correct-answer" : "wrong-answer"}
@@ -41,9 +43,11 @@ export const ResultsScreen = () => {
     { qu.question }
     </p>) 
     }
-    { state && <Modal correctAnswer={ savedCorrectAnswer.value } shownQuestion={ shownQuestion }></Modal> }
+    { state && <Modal correctAnswer={ savedCorrectAnswer.value } shownQuestion={ shownQuestion } closeModal={ handleCloseModal }></Modal> }
     <Button >Back to Main</Button>
     
     </div>)
 
 }
+
+//show={showInfo1} onClickOutside={() => {setShowInfo1(false)}} message="Click outside to close this"/>
