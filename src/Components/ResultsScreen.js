@@ -34,6 +34,17 @@ export const ResultsScreen = () => {
         setState(false)
     }
 
+    const goToStart = () => {
+        console.log("Congratulations! You've clicked the Go To Main Page button!")
+       
+        dispatch({
+            type: 'SET_QUESTIONS',
+            questions: [],
+
+        })
+
+    }
+
     
     return (<div> { allQuestions.map(qu => <p className={ 
         userAnswers[qu.id] === qu.correctAnswerId ? "correct-answer" : "wrong-answer"}
@@ -44,7 +55,7 @@ export const ResultsScreen = () => {
     </p>) 
     }
     { state && <Modal correctAnswer={ savedCorrectAnswer.value } shownQuestion={ shownQuestion } closeModal={ handleCloseModal }></Modal> }
-    <Button >Back to Main</Button>
+    <Button onClick={ goToStart }>Back to Main</Button>
     
     </div>)
 
