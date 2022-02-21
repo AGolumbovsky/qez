@@ -8,13 +8,21 @@ export const Modal = (props) => {
     const modalEl = useRef(null)
 
     useEffect(() => {
-
-        document.addEventListener('click', e => {
-            
+        
+        const listener = e => {
+        
             if (!modalEl.current.contains(e.target)) props.closeModal()
-            // console.log("something inside useEffect fn")
-            // handle
-        })
+                // console.log("something inside useEffect fn")
+                // handle
+            }
+
+
+        document.addEventListener('click', listener)
+
+        return () => { 
+            document.removeEventListener('click', listener)
+        }
+        
     }, []); // Only re-run the effect if count changes
 
 

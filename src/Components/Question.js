@@ -52,41 +52,24 @@ function Question() {
   if (questionIndex == questionsCount) return <EndScreen showResults={ showResults } />
   return (
     <div>
-      {/* <p>Question {questionIndex + 1}</p>
-      <h3>{question.question}</h3>
-      <ul>
-        {options.map((option, i) => (
-          <li key={i} onClick={handleListItemClick} className={getClass(option)}>
-            {option}
-          </li>
-        ))}
-      </ul>
-      <div>
-        Score: {score} / {questions.length}
-      </div>
+      
+      <p>Question { questionIndex + 1 }:</p>
+      {
+        <div>
+          <div>{ currentQuestion.question }</div>
+          <div> { currentQuestion.options.map(option =>  <p className={ userAnswers[questionIndex + 1] === option.id ? "question-highlighted" : "" } 
+            key={ option.id } 
+            onClick={ () => handleSelection(option.id) }>{ option.value }</p> ) } </div>
+        </div>
+      }
+      <span className='buttons-inline'>
 
-      <div>
-        <Button onClick={ onNextQuesiton }>Next Question</Button>
-      </div>
- */}
-
-    <p>Question { questionIndex + 1 }:</p>
-    {
-      <div>
-        <div>{ currentQuestion.question }</div>
-        <div> { currentQuestion.options.map(option =>  <p className={ userAnswers[questionIndex + 1] === option.id ? "question-highlighted" : "" } 
-          key={ option.id } 
-          onClick={ () => handleSelection(option.id) }>{ option.value }</p> ) } </div>
-      </div>
-    }
-    <span className='buttons-inline'>
-
-    { isFromReview ? <GoToReviewButton /> :
-    
-    questionIndex > 0 && <BackButton questionIndex={ questionIndex - 1 }></BackButton> }
-    { !isFromReview && <NextButton questionIndex={ questionIndex + 1 }></NextButton> }
-    
-    </span>
+      { isFromReview ? <GoToReviewButton /> :
+      
+      questionIndex > 0 && <BackButton questionIndex={ questionIndex - 1 }></BackButton> }
+      { !isFromReview && <NextButton questionIndex={ questionIndex + 1 }></NextButton> }
+      
+      </span>
     </div>
   )
 }
