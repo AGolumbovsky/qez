@@ -1,15 +1,14 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Button } from '../componentsTemp/Button'
 
-export const NextButton = (props) => {
-
+export const NextButton = ({ questionIndex }) => {
     const dispatch = useDispatch()
     
     const handleNextQuestion = () => {
         dispatch({
             type: 'CURRENT_QUESTION',
-            questionIndex: props.questionIndex
+            questionIndex: questionIndex
         })
     }
 

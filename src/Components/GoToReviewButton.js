@@ -1,11 +1,8 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { Button } from '../componentsTemp/Button'
 
-
-
-export const GoToReviewButton = (props) => {
+export const GoToReviewButton = () => {
 
     const questionsCount = useSelector(state => state.questionsCount)
 
@@ -18,5 +15,5 @@ export const GoToReviewButton = (props) => {
         })
     }
 
-        return <Button onClick={ () => handleGoToReview() }> Go back to review </Button>
+    return <Button onClick={ () => handleGoToReview() }> Go back to review </Button>
 }

@@ -37,11 +37,27 @@ export const ResultsScreen = () => {
     const goToStart = () => {
         console.log("Congratulations! You've clicked the Go To Main Page button!")
        
-        dispatch({
-            type: 'SET_QUESTIONS',
-            questions: [],
-
+        dispatch ({
+            type: 'RESET_QUESTIONS',
         })
+        // dispatch({
+        //     type: 'SET_QUESTIONS',
+        //     questions: [],
+        //     questionsCount: 0,
+
+        // })
+
+        // dispatch({
+        //     type: 'CURRENT_QUESTION',
+        //     currentQuesion: {},
+
+        // })
+
+        // dispatch({
+        //     type: 'SELECTED_ANSWER',
+        //     userAnswers: {},
+
+        // })
 
     }
 

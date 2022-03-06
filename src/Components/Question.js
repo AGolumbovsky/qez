@@ -1,55 +1,39 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Button } from '../componentsTemp/Button'
 import { BackButton } from './BackButton'
 import { EndScreen } from './EndScreen'
 import { NextButton } from './NextButton'
 import { GoToReviewButton } from './GoToReviewButton'
 import { ResultsScreen } from './ResultsScreen'
 
-const decodeHTML = function (html) {
-  const txt = document.createElement('textarea')
-  txt.innerHTML = html
-  return txt.value
-}
-
-function Question() {
-
+export function Question() {
   const [state, setState] = useState(false)
   
-  // const questions = useSelector(state => state.questions)
   const currentQuestion = useSelector(state => state.currentQuestion)
   const questionIndex = useSelector(state => state.questionIndex)
   const questionsCount = useSelector(state => state.questionsCount)
   const isFromReview = useSelector(state => state.isFromReview)
 
   const userAnswers = useSelector(state => state.userAnswers)
-  console.log("userAnswers is:", userAnswers)
 
   const dispatch = useDispatch()
 
   const handleSelection = (id) => {
-
     dispatch({
       type: 'SELECTED_ANSWER',
       questionId: currentQuestion.id,
       selectedAnswerId: id
     })
-
   }
-
+  
   const showResults = () => {
-
     setState(true)
-    console.log("some test")
-    
-    
   }
-  console.log("state is", state)
 
-  if (state == true) return <ResultsScreen />
+  if (state) return <ResultsScreen />
 
   if (questionIndex == questionsCount) return <EndScreen showResults={ showResults } />
+
   return (
     <div>
       
@@ -73,4 +57,3 @@ function Question() {
     </div>
   )
 }
-export default Question

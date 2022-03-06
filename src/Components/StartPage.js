@@ -1,18 +1,26 @@
-import React from 'react'
-import StartTestButton from './StartTestButton'
+import React, { useState } from 'react'
+import { StartButton } from './StartButton'
 
-function StartPage () {
+export function StartPage () {
+
+    const [state, setState] = useState("level-one")
+
+    const handleTestSelection = (event) => {
+
+        setState(event.currentTarget.value)
+    }
+
     return (
 
         <div>
-            <select>
-                <option>uno</option>
-                <option>dos</option>
+            <select onChange={ handleTestSelection }>
+
+                <option value="level-one">uno</option>
+                <option value="level-two">dos</option>
+
             </select>
             
-            <StartTestButton/>
+            <StartButton level={ state } />
         </div>
     )
 }
-
-export default StartPage

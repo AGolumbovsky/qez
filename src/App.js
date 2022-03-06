@@ -1,31 +1,17 @@
 import { useSelector } from 'react-redux'
 
-import Settings from './Components/Settings'
-import Question from './Components/Question'
-import FinalScreen from './Components/FinalScreen'
+import { Question } from './Components/Question'
 
 import './App.css'
-import { useEffect } from 'react'
-import { getQuestions } from './api/routes/getQuestions'
-import StartTestButton from './Components/StartTestButton'
-import StartPage from './Components/StartPage'
+import { StartPage } from './Components/StartPage'
 
-function App() {
+export function App() {
   const questions = useSelector((state) => state.questions)
-  const questionIndex = useSelector((state) => state.index)
-
-
-  // return (
-  //   <div className="App">
-  //     <div className="app-container">{ (questions.length != 0 ? <Question /> : <StartTestButton />)}</div>
-  //   </div>
-  // )
 
   return (
     <div className="App">
+      {/* PUT NAVBAR HERE. At least for now */}
       <div className="app-container"> { (questions.length != 0 ? <Question /> : <StartPage />)}</div>
     </div>
   )
 }
-
-export default App

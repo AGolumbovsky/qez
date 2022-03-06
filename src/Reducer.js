@@ -62,6 +62,9 @@ const Reducer = (state = initState, action) => {
         userAnswers: state.userAnswers
       }
 
+    case 'RESET_QUESTIONS':
+      return initState
+
     default:
       return state
   }

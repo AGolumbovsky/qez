@@ -1,6 +1,6 @@
 import { request } from "../Instance"
 
-export const getQuestions = () => {
+export const getQuestions = (level = "level-one") => {
     
-    return request("/level-one")
+    return request(`/${ level }`)
 }

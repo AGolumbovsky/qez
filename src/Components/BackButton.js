@@ -1,15 +1,15 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Button } from '../componentsTemp/Button'
 
-export const BackButton = (props) => {
+export const BackButton = ({ questionIndex }) => {
 
     const dispatch = useDispatch()
     
     const onGoPrevQuestion = () => {
         dispatch({
             type: 'CURRENT_QUESTION',
-            questionIndex: props.questionIndex
+            questionIndex: questionIndex
         })
     }
 
