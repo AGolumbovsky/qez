@@ -40,25 +40,7 @@ export const ResultsScreen = () => {
         dispatch ({
             type: 'RESET_QUESTIONS',
         })
-        // dispatch({
-        //     type: 'SET_QUESTIONS',
-        //     questions: [],
-        //     questionsCount: 0,
-
-        // })
-
-        // dispatch({
-        //     type: 'CURRENT_QUESTION',
-        //     currentQuesion: {},
-
-        // })
-
-        // dispatch({
-        //     type: 'SELECTED_ANSWER',
-        //     userAnswers: {},
-
-        // })
-
+        
     }
 
     

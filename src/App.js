@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 
 import { Question } from './Components/Question'
+import { Navbar } from './Components/Navbar'
 
 import './App.css'
 import { StartPage } from './Components/StartPage'
@@ -10,7 +11,7 @@ export function App() {
 
   return (
     <div className="App">
-      {/* PUT NAVBAR HERE. At least for now */}
+      <Navbar />      
       <div className="app-container"> { (questions.length != 0 ? <Question /> : <StartPage />)}</div>
     </div>
   )

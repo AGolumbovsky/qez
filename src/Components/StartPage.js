@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { StartButton } from './StartButton'
+import { Navbar } from './Navbar'
 
 export function StartPage () {
 
@@ -13,6 +14,7 @@ export function StartPage () {
     return (
 
         <div>
+
             <select onChange={ handleTestSelection }>
 
                 <option value="level-one">uno</option>
